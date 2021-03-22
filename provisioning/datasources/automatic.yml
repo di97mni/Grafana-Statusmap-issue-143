@@ -1,0 +1,22 @@
+# config file version
+apiVersion: 5
+# list of datasources that should be deleted from the database
+deleteDatasources:  
+
+datasources:
+  - name: Azure Monitor
+    type: grafana-azure-monitor-datasource
+    access: proxy
+    jsonData:
+      azureLogAnalyticsSameAs: true
+      clientId: ${AZURE_clientId}
+      cloudName: azuremonitor
+      logAnalyticsClientId: ${AZURE_logAnalyticsClientId}
+      logAnalyticsDefaultWorkspace: ${AZURE_logAnalyticsDefaultWorkspace}
+      logAnalyticsTenantId: ${AZURE_logAnalyticsTenantId}
+      subscriptionId: ${AZURE_subscriptionId}
+      tenantId: ${AZURE_tenantId}
+    secureJsonData:
+      clientSecret: ${AZURE_secret}
+      logAnalyticsClientSecret: ${AZURE_secret}
+    editable: false

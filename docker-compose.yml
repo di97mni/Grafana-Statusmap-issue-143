@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  grafana-7.0.0:
+    image: grafana/grafana:7.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./provisioning/datasources:/etc/grafana/provisioning/datasources/
+      - ./provisioning/dashboards:/etc/grafana/provisioning/dashboards/
+      - ./grafana-7.0.0/grafana-storage:/var/lib/grafana
+    environment:
+      - GF_INSTALL_PLUGINS=flant-statusmap-panel
+      - AZURE_clientId=ADD_VALUE_HERE
+      - AZURE_logAnalyticsClientId=ADD_VALUE_HERE
+      - AZURE_logAnalyticsDefaultWorkspace=ADD_VALUE_HERE
+      - AZURE_logAnalyticsTenantId=ADD_VALUE_HERE
+      - AZURE_subscriptionId=ADD_VALUE_HERE
+      - AZURE_tenantId=ADD_VALUE_HERE
+      - AZURE_secret=ADD_VALUE_HERE
+  grafana-7.2.2:
+    image: grafana/grafana:7.2.2
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./provisioning/datasources:/etc/grafana/provisioning/datasources/
+      - ./provisioning/dashboards:/etc/grafana/provisioning/dashboards/
+      - ./grafana-7.2.2/grafana-storage:/var/lib/grafana
+    environment:
+      - GF_INSTALL_PLUGINS=flant-statusmap-panel
+      - AZURE_clientId=ADD_VALUE_HERE
+      - AZURE_logAnalyticsClientId=ADD_VALUE_HERE
+      - AZURE_logAnalyticsDefaultWorkspace=ADD_VALUE_HERE
+      - AZURE_logAnalyticsTenantId=ADD_VALUE_HERE
+      - AZURE_subscriptionId=ADD_VALUE_HERE
+      - AZURE_tenantId=ADD_VALUE_HERE
+      - AZURE_secret=ADD_VALUE_HERE
